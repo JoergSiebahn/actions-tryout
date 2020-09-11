@@ -1,0 +1,21 @@
+name: Pull Request
+
+on:
+  pull_request:
+    types:
+      - closed
+
+jobs:
+  pull-request-close:
+    # only executed if PR is labeled with 'run-action'
+    if: "github.head_ref == 'master'"
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Run only on PR with label 'run-action'
+        env:
+          PR: "${{ github.event.pull_request.number }}"
+          SHA: "${{ github.sha }}"
+          MERGE_SHA: "${{ github.event.pull_request.merge_commit_sha }}"
+          HEAD_SHA: "${{ github.event.pull_request.head.sha }}"
+        run: echo "Running on PR ${PR} on sha ${SHA} and merge sha ${MERGE_SHA} and head sha ${HEAD_SHA}"
