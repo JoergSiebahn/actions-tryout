@@ -13,6 +13,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2.3.4
       - name: Show wf source
-        run: echo "WF file in master"
+        run: echo "WF file in feat/test-wf-run"
       - name: Show test.txt
         run: cat "test.txt"
