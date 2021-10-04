@@ -15,6 +15,6 @@ jobs:
         with:
           ref: ${{ github.event.workflow_run.head_branch }}
       - name: Show wf source
-        run: echo "WF file in master"
+        run: echo "WF file in feat/test-wf-run"
       - name: Show test.txt
         run: cat "test.txt"
