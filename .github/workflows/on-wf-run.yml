@@ -1,0 +1,15 @@
+name: WF Run
+on:
+  workflow_run:
+    workflows: ["WF Precondition"]
+    types:
+      - completed
+
+jobs:
+  echo:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Show test.txt
+        run: cat "test.txt"

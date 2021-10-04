@@ -1,0 +1,11 @@
+name: WF Precondition
+on:
+  - push
+
+jobs:
+  echo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Show test.txt
+        run: cat "test.txt"
