@@ -1,4 +1,4 @@
-name: WF Run
+name: WF Run ${{ github.event.workflow_run.pull_requests[0].number }}
 on:
   workflow_run:
     workflows: ["WF Precondition"]
